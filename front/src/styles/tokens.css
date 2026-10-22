@@ -1,0 +1,26 @@
+:root {
+  /* Paleta — direto do design */
+  --cream: #f3efe7;
+  --cream-soft: #e6dccb;
+  --brown: #352504;
+  --brown-mid: #6b5422;
+  --brasa: #a7321c;
+  --amber: #cc982a;
+  --amber-light: #ffdc68;
+  --olive: #928941;
+
+  /* Tipografia */
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --max: 1440px;
+  --gutter: clamp(16px, 4vw, 64px);
+  --section-y: clamp(120px, 14vw, 200px);
+
+  /* UI */
+  --hairline: 1px solid var(--brown);
+  --radius-pill: 999px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
