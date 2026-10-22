@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256">
+  <text x="20" y="180"
+        font-family="'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif"
+        font-weight="700" font-size="200" fill="#352504" letter-spacing="-8">trempe</text>
+  <circle cx="760" cy="90" r="22" fill="#a7321c"/>
+</svg>

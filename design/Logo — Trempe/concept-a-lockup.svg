@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256">
+  <g>
+    <circle cx="128" cy="128" r="84" fill="none" stroke="#352504" stroke-width="14"/>
+    <line x1="128" y1="37" x2="128" y2="10" stroke="#352504" stroke-width="14" stroke-linecap="round"/>
+    <line x1="206.8" y1="173.5" x2="230.2" y2="187" stroke="#352504" stroke-width="14" stroke-linecap="round"/>
+    <line x1="49.2" y1="173.5" x2="25.8" y2="187" stroke="#352504" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="128" cy="128" r="22" fill="#a7321c"/>
+  </g>
+  <text x="300" y="150"
+        font-family="'JetBrains Mono', ui-monospace, monospace"
+        font-weight="500" font-size="72" fill="#352504" letter-spacing="8">TREMPE</text>
+</svg>

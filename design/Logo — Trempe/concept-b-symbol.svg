@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Concept B: trempe de perfil — barra + 3 pernas abertas + brasa sob -->
+  <!-- barra superior (onde a panela repousa) -->
+  <rect x="36" y="74" width="184" height="16" rx="8" fill="#352504"/>
+  <!-- 3 pernas: central reta, duas laterais abertas -->
+  <line x1="128" y1="90" x2="128" y2="192" stroke="#352504" stroke-width="14" stroke-linecap="round"/>
+  <line x1="60" y1="90" x2="40" y2="192" stroke="#352504" stroke-width="14" stroke-linecap="round"/>
+  <line x1="196" y1="90" x2="216" y2="192" stroke="#352504" stroke-width="14" stroke-linecap="round"/>
+  <!-- brasa sob o tripé -->
+  <circle cx="128" cy="222" r="20" fill="#a7321c"/>
+</svg>

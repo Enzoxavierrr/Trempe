@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Concept A: a trempe vista de cima — anel + 3 pernas em 120°, brasa no centro -->
+  <!-- anel (panela / mesa) -->
+  <circle cx="128" cy="128" r="84" fill="none" stroke="#352504" stroke-width="14"/>
+  <!-- 3 pernas em 270°, 30°, 150° -->
+  <line x1="128" y1="37" x2="128" y2="10" stroke="#352504" stroke-width="14" stroke-linecap="round"/>
+  <line x1="206.8" y1="173.5" x2="230.2" y2="187" stroke="#352504" stroke-width="14" stroke-linecap="round"/>
+  <line x1="49.2" y1="173.5" x2="25.8" y2="187" stroke="#352504" stroke-width="14" stroke-linecap="round"/>
+  <!-- brasa -->
+  <circle cx="128" cy="128" r="22" fill="#a7321c"/>
+</svg>

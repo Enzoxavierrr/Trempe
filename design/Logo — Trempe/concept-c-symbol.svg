@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Concept C (refeito): "T" em Bricolage Grotesque bold, com brasa como ponto da serifa -->
+  <text x="128" y="190" text-anchor="middle"
+        font-family="'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif"
+        font-weight="700" font-size="240" fill="#352504" letter-spacing="-10">T</text>
+  <circle cx="190" cy="60" r="18" fill="#a7321c"/>
+</svg>
