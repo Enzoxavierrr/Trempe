@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node / Front
+node_modules/
+dist/
+build/
+.vite/
+*.log
+.env
+.env.local
+.env.*.local
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.nupkg
+
+# Testes / cobertura
+coverage/
+TestResults/
+
+# Dapper/EF temporários — se forem gerados
+*.db
+*.db-journal

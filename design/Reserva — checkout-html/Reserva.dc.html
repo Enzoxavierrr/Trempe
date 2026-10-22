@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Trempe — reservar mesa</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f3efe7}
+a{color:#352504}a:hover{color:#a7321c}
+input:focus,textarea:focus{outline:2px solid #a7321c;outline-offset:2px}
+button:focus-visible,a:focus-visible{outline:2px solid #a7321c;outline-offset:3px}
+</style>
+</helmet>
+<div style="width: 100%; min-height: 100vh; background: #f3efe7; color: #352504; font-family: 'Bricolage Grotesque', sans-serif">
+
+  <!-- TOPO -->
+  <header style="max-width: 1440px; margin: 0 auto; padding: 32px clamp(16px, 4vw, 64px); box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">
+    <a href="Main.dc.html" style="text-decoration: none; font-weight: 500; padding: 12px 0">Trempe</a>
+    <a href="Main.dc.html" style="text-decoration: none; padding: 12px 0; border-bottom: 1px solid #352504">← Voltar à história</a>
+  </header>
+
+  <!-- ETAPA: FORMULÁRIO -->
+  <sc-if value="{{editing}}" hint-placeholder-val="{{ true }}">
+    <main style="max-width: 1440px; margin: 0 auto; padding: clamp(48px, 8vw, 112px) clamp(16px, 4vw, 64px) clamp(96px, 10vw, 140px); box-sizing: border-box; display: flex; flex-direction: column; gap: clamp(56px, 7vw, 96px)">
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px">
+        <h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(72px, 11vw, 176px); line-height: 0.86; letter-spacing: -0.035em">Reserve<br>sua <span style="font-style: italic">mesa</span><span style="display: inline-block; width: 0.14em; height: 0.14em; border-radius: 50%; background: #a7321c; margin-left: 0.05em"></span></h1>
+        <p style="margin: 0; max-width: 300px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.6">Quatro passos. A confirmação chega no seu telefone.</p>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
+
+        <!-- PASSOS -->
+        <div style="flex: 999 1 600px; min-width: 0; display: flex; flex-direction: column">
+
+          <!-- 01 pessoas -->
+          <fieldset style="margin: 0; padding: 32px 0 40px; border: 0; border-top: 1px solid #352504; display: flex; flex-wrap: wrap; gap: 24px 48px">
+            <legend style="float: left; width: 200px; padding: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.6">01<br>Quantas pessoas</legend>
+            <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px">
+              <sc-for list="{{guestOpts}}" as="g" hint-placeholder-count="8">
+                <button type="button" onClick="{{g.pick}}" aria-pressed="{{g.pressed}}" style="width: 56px; height: 56px; border-radius: 50%; border: 1px solid #352504; font-family: 'Instrument Serif', serif; font-size: 26px; cursor: pointer; {{g.tone}}">{{g.label}}</button>
+              </sc-for>
+            </div>
+            <p style="flex-basis: 100%; margin: 0 0 0 248px; font-size: 14px; line-height: 1.4">Mais de 8 pessoas? Fale com a gente: [TELEFONE]</p>
+          </fieldset>
+
+          <!-- 02 dia -->
+          <fieldset style="margin: 0; padding: 32px 0 40px; border: 0; border-top: 1px solid #352504; display: flex; flex-wrap: wrap; gap: 24px 48px">
+            <legend style="float: left; width: 200px; padding: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.6">02<br>Qual dia</legend>
+            <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px">
+              <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
+                <button type="button" onClick="{{d.pick}}" aria-pressed="{{d.pressed}}" aria-label="{{d.aria}}" style="width: 76px; height: 92px; border-radius: 4px; border: 1px solid #352504; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; {{d.tone}}">
+                  <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase">{{d.wk}}</span>
+                  <span style="font-family: 'Instrument Serif', serif; font-size: 34px; line-height: 1">{{d.num}}</span>
+                </button>
+              </sc-for>
+            </div>
+          </fieldset>
+
+          <!-- 03 horário -->
+          <fieldset style="margin: 0; padding: 32px 0 40px; border: 0; border-top: 1px solid #352504; display: flex; flex-wrap: wrap; gap: 24px 48px">
+            <legend style="float: left; width: 200px; padding: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.6">03<br>Que horas</legend>
+            <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px">
+              <sc-for list="{{slots}}" as="t" hint-placeholder-count="8">
+                <button type="button" onClick="{{t.pick}}" disabled="{{t.off}}" aria-pressed="{{t.pressed}}" style="min-width: 92px; height: 48px; padding: 0 18px; border-radius: 999px; border: 1px solid #352504; font-family: 'JetBrains Mono', monospace; font-size: 14px; {{t.tone}}">{{t.label}}</button>
+              </sc-for>
+            </div>
+          </fieldset>
+
+          <!-- 04 dados -->
+          <fieldset style="margin: 0; padding: 32px 0 40px; border: 0; border-top: 1px solid #352504; border-bottom: 1px solid #352504; display: flex; flex-wrap: wrap; gap: 24px 48px">
+            <legend style="float: left; width: 200px; padding: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.6">04<br>Seus dados</legend>
+            <div style="flex: 1 1 320px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px">
+              <div style="display: flex; flex-direction: column; gap: 8px; grid-column: span 2">
+                <label for="r-nome" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Nome</label>
+                <input id="r-nome" type="text" autocomplete="name" value="{{name}}" onChange="{{onName}}" placeholder="Como devemos te chamar" style="height: 52px; border: 0; border-bottom: 1px solid #352504; background: transparent; font-family: 'Instrument Serif', serif; font-size: 28px; color: #352504; padding: 0">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px">
+                <label for="r-tel" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Telefone / WhatsApp</label>
+                <input id="r-tel" type="tel" autocomplete="tel" value="{{phone}}" onChange="{{onPhone}}" placeholder="(00) 00000-0000" style="height: 52px; border: 0; border-bottom: 1px solid #352504; background: transparent; font-family: 'Instrument Serif', serif; font-size: 28px; color: #352504; padding: 0">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px">
+                <label for="r-email" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">E-mail (opcional)</label>
+                <input id="r-email" type="email" autocomplete="email" value="{{email}}" onChange="{{onEmail}}" placeholder="voce@email.com" style="height: 52px; border: 0; border-bottom: 1px solid #352504; background: transparent; font-family: 'Instrument Serif', serif; font-size: 28px; color: #352504; padding: 0">
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px; grid-column: span 2">
+                <label for="r-obs" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Algo que a cozinha deva saber?</label>
+                <textarea id="r-obs" rows="2" onChange="{{onNotes}}" placeholder="Aniversário, restrição alimentar, cadeira de bebê…" style="border: 0; border-bottom: 1px solid #352504; background: transparent; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; line-height: 1.5; color: #352504; padding: 8px 0; resize: vertical">{{notes}}</textarea>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- RESUMO -->
+        <aside aria-label="Resumo da reserva" style="flex: 1 1 340px; min-width: 0; background: #352504; color: #f3efe7; border-radius: 4px; padding: 40px 36px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px">
+          <div style="display: flex; justify-content: space-between; align-items: center">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Sua reserva</span>
+            <span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 50%; background: #a7321c"></span>
+          </div>
+          <p style="margin: 0; font-family: 'Instrument Serif', serif; font-size: 44px; line-height: 1.02; letter-spacing: -0.02em">{{guestsLabel}},<br><span style="font-style: italic">{{dayLabel}}</span>,<br>às {{timeLabel}}.</p>
+          <dl style="margin: 0; display: flex; flex-direction: column; border-top: 1px solid #6b5422">
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #6b5422">
+              <dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Mesa</dt>
+              <dd style="margin: 0; font-size: 15px">Salão, perto do fogo</dd>
+            </div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #6b5422">
+              <dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Tolerância</dt>
+              <dd style="margin: 0; font-size: 15px">[15 MIN]</dd>
+            </div>
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #6b5422">
+              <dt style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase">Cancelamento</dt>
+              <dd style="margin: 0; font-size: 15px">[POLÍTICA]</dd>
+            </div>
+          </dl>
+          <button type="button" onClick="{{confirm}}" disabled="{{blocked}}" style="height: 60px; border: 0; border-radius: 999px; font-family: 'Bricolage Grotesque', sans-serif; font-size: 17px; font-weight: 600; {{confirmTone}}">Confirmar reserva</button>
+          <p style="margin: 0; font-size: 14px; line-height: 1.45; color: #e6dccb">{{hint}}</p>
+        </aside>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ETAPA: CONFIRMADO -->
+  <sc-if value="{{confirmed}}" hint-placeholder-val="{{ false }}">
+    <main style="max-width: 1440px; margin: 0 auto; padding: clamp(80px, 12vw, 180px) clamp(16px, 4vw, 64px) clamp(96px, 10vw, 140px); box-sizing: border-box; display: flex; flex-direction: column; gap: 64px">
+      <p style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase">Reserva confirmada</p>
+      <h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(72px, 12vw, 192px); line-height: 0.86; letter-spacing: -0.035em">Até <span style="font-style: italic">logo</span>,<br>{{firstName}}<span style="display: inline-block; width: 0.14em; height: 0.14em; border-radius: 50%; background: #a7321c; margin-left: 0.05em"></span></h1>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 40px; border-top: 1px solid #352504; padding-top: 32px">
+        <p style="margin: 0; flex: 1 1 420px; min-width: 0; font-family: 'Instrument Serif', serif; font-size: clamp(28px, 3vw, 40px); line-height: 1.15">{{guestsLabel}}, {{dayLabel}}, às {{timeLabel}}. A trempe vai estar no fogo.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <button type="button" onClick="{{edit}}" style="height: 52px; padding: 0 28px; border-radius: 999px; border: 1px solid #352504; background: transparent; color: #352504; font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer">Alterar reserva</button>
+          <a href="Main.dc.html" style="height: 52px; padding: 0 28px; border-radius: 999px; background: #352504; color: #f3efe7; text-decoration: none; font-size: 16px; font-weight: 600; display: inline-flex; align-items: center; box-sizing: border-box">Voltar ao início</a>
+        </div>
+      </div>
+    </main>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { guests: 2, day: 0, time: null, name: '', phone: '', email: '', notes: '', confirmed: false };
+  }
+  renderVals() {
+    const s = this.state;
+    const on = 'background: #352504; color: #f3efe7; cursor: pointer;';
+    const off = 'background: transparent; color: #352504; cursor: pointer;';
+    const dead = 'background: transparent; color: #352504; opacity: 0.3; text-decoration: line-through; cursor: not-allowed;';
+
+    const guestOpts = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => ({
+      label: String(n), pressed: String(s.guests === n), tone: s.guests === n ? on : off,
+      pick: () => this.setState({ guests: n })
+    }));
+
+    const days = [];
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(); d.setDate(d.getDate() + i);
+      const wk = i === 0 ? 'hoje' : d.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', '');
+      days.push({
+        wk, num: String(d.getDate()),
+        aria: d.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' }),
+        short: d.toLocaleDateString('pt-BR', { weekday: 'short', day: 'numeric', month: 'short' }).replace(/\./g, ''),
+        pressed: String(s.day === i), tone: s.day === i ? on : off,
+        pick: () => this.setState({ day: i, time: null })
+      });
+    }
+
+    const full = s.day === 0 ? ['20:00', '20:30'] : ['21:00'];
+    const slots = ['19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30'].map((t) => {
+      const isOff = full.indexOf(t) !== -1;
+      const sel = s.time === t;
+      return { label: t, off: isOff, pressed: String(sel), tone: isOff ? dead : (sel ? on : off), pick: () => this.setState({ time: t }) };
+    });
+
+    const ready = !!s.time && s.name.trim().length > 0 && s.phone.trim().length > 0;
+    let hint = 'Tudo certo. É só confirmar.';
+    if (!s.time) hint = 'Escolha um horário para continuar.';
+    else if (!s.name.trim() || !s.phone.trim()) hint = 'Falta seu nome e telefone.';
+
+    return {
+      editing: !s.confirmed,
+      confirmed: s.confirmed,
+      guestOpts, days, slots,
+      name: s.name, phone: s.phone, email: s.email, notes: s.notes,
+      onName: (e) => this.setState({ name: e.target.value }),
+      onPhone: (e) => this.setState({ phone: e.target.value }),
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      onNotes: (e) => this.setState({ notes: e.target.value }),
+      guestsLabel: s.guests === 1 ? '1 pessoa' : s.guests + ' pessoas',
+      dayLabel: days[s.day].short,
+      timeLabel: s.time || '—',
+      firstName: (s.name.trim().split(' ')[0]) || 'até já',
+      blocked: !ready,
+      confirmTone: ready ? 'background: #f3efe7; color: #352504; cursor: pointer;' : 'background: #6b5422; color: #e6dccb; cursor: not-allowed;',
+      hint,
+      confirm: () => { if (ready) this.setState({ confirmed: true }); },
+      edit: () => this.setState({ confirmed: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
